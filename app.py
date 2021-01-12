@@ -1,8 +1,9 @@
-from datetime import datetime
+from flask import Flask, render_template, request, jsonify
 
-from flask import Flask, jsonify, render_template
+from api.api import api
 
 app = Flask(__name__)
+app.register_blueprint(api)
 
 
 @app.route("/")
@@ -27,13 +28,7 @@ def shop():
 
 @app.route("/shop/<item>")
 def shop_item(item):
-    print(item)
     return render_template("index.html")
-
-
-@app.route('/api/time')
-def time():
-    return jsonify({"time": datetime.now()}), 200
 
 
 if __name__ == '__main__':
