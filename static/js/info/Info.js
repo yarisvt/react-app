@@ -5,14 +5,17 @@ import { Button, Grid, Typography, Collapse } from "@material-ui/core";
 import Input from "@material-ui/core/Input";
 import Alert from "@material-ui/lab/Alert";
 
+import User from "./User";
+
 export default function Info() {
   const [name, setName] = useState("");
+  const [nameField, setNameField] = useState("");
 
   const [succesMessage, setSuccesMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
   function submitName() {
-    if (name === "") {
+    if (nameField === "") {
       setErrorMessage("Name should not be empty");
       return;
     }
@@ -23,7 +26,7 @@ export default function Info() {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ name: name }),
+      body: JSON.stringify({ name: nameField }),
     })
       .then((response) => {
         if (response.ok) {
@@ -34,7 +37,10 @@ export default function Info() {
           });
         }
       })
-      .then((data) => setSuccesMessage(data.message))
+      .then(({ name, message }) => {
+        setName(name);
+        setSuccesMessage(message);
+      })
       .catch((err) => setErrorMessage(err.message));
   }
 
@@ -54,7 +60,7 @@ export default function Info() {
         <Input
           placeholder="Name"
           required={true}
-          onChange={(event) => setName(event.target.value)}
+          onChange={(event) => setNameField(event.target.value)}
         >
           Name
         </Input>
@@ -88,6 +94,7 @@ export default function Info() {
           Home
         </Button>
       </Grid>
+      {name && <User name={name} />}
     </Grid>
   );
 }

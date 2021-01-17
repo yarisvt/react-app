@@ -4,10 +4,11 @@ import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import { Button, Grid } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 
-import Info from "./Info";
-import About from "./About";
-import Shop from "./Shop";
-import Todos from "./Todos";
+import Info from "./info/Info";
+import About from "./about/About";
+import Shop from "./shop/Shop";
+import Todos from "./todo/Todos";
+import Test from "./test/Test";
 
 const StyledButton = withStyles({
   root: {
@@ -64,6 +65,15 @@ export default function App() {
           >
             About
           </StyledButton>
+          <StyledButton
+            variant="contained"
+            color="primary"
+            to="/test"
+            disableElevation
+            component={Link}
+          >
+            Test
+          </StyledButton>
         </Grid>
       </Grid>
     );
@@ -77,6 +87,11 @@ export default function App() {
         <Route exact path="/todos" component={Todos} />
         <Route exact path="/about" component={About} />
         <Route exact path="/shop" component={Shop} />
+        <Route
+          exact
+          path="/test"
+          render={() => <Test name="Yaris" age={21} hasCar={false} />}
+        />
         <Route
           exact
           path="/shop/:item"

@@ -30,6 +30,12 @@ def about():
     return render_template("index.html")
 
 
+@app.route("/test")
+def test():
+    return render_template("index.html")
+
+
+
 @app.route("/shop/<item>")
 def shop_item(item):
     return render_template("index.html")

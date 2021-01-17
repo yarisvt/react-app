@@ -21,5 +21,5 @@ def set_time():
         }), 400
     return jsonify({
         "message": "User created succesfully",
-        "name": "test"
+        "name": name
     }), 201
