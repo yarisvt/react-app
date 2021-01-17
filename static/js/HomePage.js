@@ -7,6 +7,7 @@ import { withStyles } from "@material-ui/core/styles";
 import Info from "./Info";
 import About from "./About";
 import Shop from "./Shop";
+import Todos from "./Todos";
 
 const StyledButton = withStyles({
   root: {
@@ -39,20 +40,29 @@ export default function App() {
           <StyledButton
             variant="contained"
             color="primary"
-            to="/about"
-            disableElevation
-            component={Link}
-          >
-            About
-          </StyledButton>
-          <StyledButton
-            variant="contained"
-            color="primary"
             to="/shop/yeet"
             disableElevation
             component={Link}
           >
             Shop
+          </StyledButton>
+          <StyledButton
+            variant="contained"
+            color="primary"
+            to="/todos"
+            disableElevation
+            component={Link}
+          >
+            Todos
+          </StyledButton>
+          <StyledButton
+            variant="contained"
+            color="primary"
+            to="/about"
+            disableElevation
+            component={Link}
+          >
+            About
           </StyledButton>
         </Grid>
       </Grid>
@@ -64,6 +74,7 @@ export default function App() {
       <Switch>
         <Route exact path="/" render={renderHomePage} />
         <Route exact path="/info" component={Info} />
+        <Route exact path="/todos" component={Todos} />
         <Route exact path="/about" component={About} />
         <Route exact path="/shop" component={Shop} />
         <Route

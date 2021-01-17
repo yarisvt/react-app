@@ -16,13 +16,17 @@ def info():
     return render_template("index.html")
 
 
-@app.route("/about")
-def about():
+@app.route("/shop")
+def shop():
+    return render_template("index.html")
+
+@app.route("/todos")
+def todos():
     return render_template("index.html")
 
 
-@app.route("/shop")
-def shop():
+@app.route("/about")
+def about():
     return render_template("index.html")
 
 

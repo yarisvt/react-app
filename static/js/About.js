@@ -26,10 +26,7 @@ export default function About() {
       </Grid>
       <Grid item xs={10} align="center">
         <ButtonGroup disableElevation variant="contained" color="primary">
-          <Button
-            color="primary"
-            onClick={() => getCurrentTime()}
-          >
+          <Button color="primary" onClick={() => getCurrentTime()}>
             Get Current Time
           </Button>
         </ButtonGroup>
