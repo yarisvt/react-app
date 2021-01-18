@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 
 import { Button, Grid } from "@material-ui/core";
-import { withStyles } from "@material-ui/core/styles";
+import styled from "styled-components";
 
 import Info from "./info/Info";
 import About from "./about/About";
@@ -10,15 +10,13 @@ import Shop from "./shop/Shop";
 import Todos from "./todo/Todos";
 import Test from "./test/Test";
 
-const StyledButton = withStyles({
-  root: {
-    margin: ".5em",
-    borderRadius: "6px",
-  },
-})(Button);
+const StyledButton = styled(Button)`
+  background: red;
+  color: white;
+` as typeof Button;
 
-export default function App() {
-  function renderHomePage() {
+const HomePage: React.FC = () => {
+  const renderHomePage: React.FC = () => {
     return (
       <Grid
         container
@@ -28,7 +26,7 @@ export default function App() {
         justify="center"
         style={{ minHeight: "100vh" }}
       >
-        <Grid item xs={3} align="center">
+        <Grid item xs={3} alignItems="center">
           <StyledButton
             variant="contained"
             color="primary"
@@ -77,7 +75,7 @@ export default function App() {
         </Grid>
       </Grid>
     );
-  }
+  };
 
   return (
     <Router>
@@ -100,4 +98,6 @@ export default function App() {
       </Switch>
     </Router>
   );
-}
+};
+
+export default HomePage;

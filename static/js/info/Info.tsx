@@ -7,14 +7,14 @@ import Alert from "@material-ui/lab/Alert";
 
 import User from "./User";
 
-export default function Info() {
-  const [name, setName] = useState("");
-  const [nameField, setNameField] = useState("");
+const Info: React.FC = () => {
+  const [name, setName] = useState<string>("");
+  const [nameField, setNameField] = useState<string>("");
 
-  const [succesMessage, setSuccesMessage] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+  const [succesMessage, setSuccesMessage] = useState<string>("");
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
-  function submitName() {
+  const submitName = () => {
     if (nameField === "") {
       setErrorMessage("Name should not be empty");
       return;
@@ -42,7 +42,7 @@ export default function Info() {
         setSuccesMessage(message);
       })
       .catch((err) => setErrorMessage(err.message));
-  }
+  };
 
   return (
     <Grid
@@ -53,17 +53,14 @@ export default function Info() {
       justify="center"
       style={{ minHeight: "100vh" }}
     >
-      <Grid item xs={10} align="center">
+      <Grid item xs={10} alignItems="center">
         <Typography variant="h4">Info</Typography>
       </Grid>
-      <Grid item xs={10} align="center">
+      <Grid item xs={10} alignItems="center">
         <Input
           placeholder="Name"
-          required={true}
           onChange={(event) => setNameField(event.target.value)}
-        >
-          Name
-        </Input>
+        />
         <Collapse in={succesMessage !== "" || errorMessage !== ""}>
           {succesMessage !== "" ? (
             <Alert
@@ -89,7 +86,7 @@ export default function Info() {
           Submit
         </Button>
       </Grid>
-      <Grid item xs={10} align="center">
+      <Grid item xs={10} alignItems="center">
         <Button color="primary" to="/" component={Link}>
           Home
         </Button>
@@ -97,4 +94,6 @@ export default function Info() {
       {name && <User name={name} />}
     </Grid>
   );
-}
+};
+
+export default Info;

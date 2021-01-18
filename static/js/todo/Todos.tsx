@@ -6,9 +6,9 @@ import Input from "@material-ui/core/Input";
 
 import Todo from "./Todo";
 
-export default function Todos() {
+const Todos: React.FC = () => {
   const [todo, setTodo] = useState("");
-  const [todosList, setTodosList] = useState([]);
+  const [todosList, setTodosList] = useState<string[]>([]);
 
   const addTodo = () => {
     setTodosList((prevTodo) => [...prevTodo, todo]);
@@ -23,25 +23,25 @@ export default function Todos() {
       justify="center"
       style={{ minHeight: "100vh" }}
     >
-      <Grid item xs={10} align="center">
+      <Grid item xs={10} alignItems="center">
         <Typography variant="h4">Todos</Typography>
       </Grid>
-      <Grid item xs={10} align="center">
+      <Grid item xs={10} alignItems="center">
         <Input
           placeholder="Name"
           required={true}
           onChange={(e) => setTodo(e.target.value)}
-        >
-          Name
-        </Input>
-        <Button color="secondary" onClick={() => setTodosList(addTodo)}>
+        />
+        <Button color="secondary" onClick={addTodo}>
           Add
         </Button>
       </Grid>
-      <Grid item xs={10} align="center">
+      <Grid item xs={10} alignItems="center">
         <Button color="primary" to="/" component={Link}>
           Home
         </Button>
+      </Grid>
+      <Grid item xs={10} alignItems="center">
         {todosList.map((todo) => {
           return (
             <Todo
@@ -56,4 +56,6 @@ export default function Todos() {
       </Grid>
     </Grid>
   );
-}
+};
+
+export default Todos;

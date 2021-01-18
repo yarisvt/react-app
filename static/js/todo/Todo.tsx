@@ -5,7 +5,12 @@ import { Grid, Typography } from "@material-ui/core";
 import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 
-export default function Todo({ name, removeElement }) {
+type todoProps = {
+  name: string;
+  removeElement: () => void;
+};
+
+const Todo: React.FC<todoProps> = ({ name, removeElement }) => {
   const [complete, setComplete] = useState(false);
 
   const ColoredTypography = withStyles({
@@ -18,14 +23,13 @@ export default function Todo({ name, removeElement }) {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    flexWrap: "wrap",
     minWidth: "400px",
     maxWidth: "800px",
   };
 
   return (
     <>
-      <Grid item xs={10} align="center">
+      <Grid item xs={10} alignItems="center">
         {complete ? (
           <div style={styles}>
             <DeleteForeverIcon className="hover" onClick={removeElement} />
@@ -58,4 +62,6 @@ export default function Todo({ name, removeElement }) {
       </Grid>
     </>
   );
-}
+};
+
+export default Todo;

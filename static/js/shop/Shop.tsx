@@ -2,8 +2,19 @@ import React from "react";
 import { Button, Grid, Typography } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
-export default function Shop({ match: { params } }) {
-  console.log(params.item);
+type shopProps = {
+  match: {
+    params: {
+      item: string;
+    };
+  };
+};
+
+const Shop: React.FC<shopProps> = ({
+  match: {
+    params: { item },
+  },
+}) => {
   return (
     <Grid
       container
@@ -13,16 +24,16 @@ export default function Shop({ match: { params } }) {
       justify="center"
       style={{ minHeight: "100vh" }}
     >
-      <Grid item xs={10} align="center">
-        <Typography variant="h4">
-          Welcome to the shop page of {params.item}
-        </Typography>
+      <Grid item xs={10} alignItems="center">
+        <Typography variant="h4">Welcome to the shop page of {item}</Typography>
       </Grid>
-      <Grid item xs={10} align="center">
+      <Grid item xs={10} alignItems="center">
         <Button color="primary" to="/" component={Link}>
           Home
         </Button>
       </Grid>
     </Grid>
   );
-}
+};
+
+export default Shop;
