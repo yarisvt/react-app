@@ -1,4 +1,5 @@
 node_modules/
 virtualenv/
 .idea/
+.vscode/
 __pycache__/
