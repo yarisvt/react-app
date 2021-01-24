@@ -29,7 +29,7 @@ const Todo: React.FC<todoProps> = ({ name, removeElement }) => {
 
   return (
     <>
-      <Grid item xs={10} alignItems="center">
+      <Grid item xs={10}>
         {complete ? (
           <div style={styles}>
             <DeleteForeverIcon className="hover" onClick={removeElement} />

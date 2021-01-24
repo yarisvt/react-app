@@ -53,10 +53,10 @@ const Info: React.FC = () => {
       justify="center"
       style={{ minHeight: "100vh" }}
     >
-      <Grid item xs={10} alignItems="center">
+      <Grid item xs={10}>
         <Typography variant="h4">Info</Typography>
       </Grid>
-      <Grid item xs={10} alignItems="center">
+      <Grid item xs={10}>
         <Input
           placeholder="Name"
           onChange={(event) => setNameField(event.target.value)}
@@ -86,7 +86,7 @@ const Info: React.FC = () => {
           Submit
         </Button>
       </Grid>
-      <Grid item xs={10} alignItems="center">
+      <Grid item xs={10}>
         <Button color="primary" to="/" component={Link}>
           Home
         </Button>

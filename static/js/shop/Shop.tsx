@@ -24,10 +24,10 @@ const Shop: React.FC<shopProps> = ({
       justify="center"
       style={{ minHeight: "100vh" }}
     >
-      <Grid item xs={10} alignItems="center">
+      <Grid item xs={10}>
         <Typography variant="h4">Welcome to the shop page of {item}</Typography>
       </Grid>
-      <Grid item xs={10} alignItems="center">
+      <Grid item xs={10}>
         <Button color="primary" to="/" component={Link}>
           Home
         </Button>

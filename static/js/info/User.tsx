@@ -8,7 +8,7 @@ type UserProps = {
 
 const User: React.FC<UserProps> = ({ name }) => {
   return (
-    <Grid item xs={10} alignItems="center">
+    <Grid item xs={10}>
       <Typography variant="h6">
         Welcome {name} to this beautiful website!
       </Typography>

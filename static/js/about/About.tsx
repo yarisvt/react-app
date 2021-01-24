@@ -22,8 +22,12 @@ const About: React.FC = () => {
     >
       <Grid item xs={10}>
         <Typography variant="h4">About</Typography>
-        <Typography variant="h6">{time}</Typography>
       </Grid>
+      {time && (
+        <Grid item xs={10}>
+          <Typography variant="h6">{time}</Typography>
+        </Grid>
+      )}
       <Grid item xs={10}>
         <ButtonGroup disableElevation variant="contained" color="primary">
           <Button color="primary" onClick={() => getCurrentTime()}>

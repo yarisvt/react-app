@@ -11,8 +11,7 @@ import Todos from "./todo/Todos";
 import Test from "./test/Test";
 
 const StyledButton = styled(Button)`
-  background: red;
-  color: white;
+  margin: 1px;
 ` as typeof Button;
 
 const HomePage: React.FC = () => {
@@ -26,7 +25,7 @@ const HomePage: React.FC = () => {
         justify="center"
         style={{ minHeight: "100vh" }}
       >
-        <Grid item xs={3} alignItems="center">
+        <Grid item xs={3}>
           <StyledButton
             variant="contained"
             color="primary"
